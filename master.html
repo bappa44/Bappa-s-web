@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Panel</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background: #0d1425;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 50px;
+  }
+  .container {
+    width: 600px;
+    background: #1e2a47;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    text-align: center;
+  }
+  h1 { margin-bottom: 25px; font-size: 36px; letter-spacing: 2px; }
+  .section { margin-bottom: 30px; }
+  .section h2 { margin-bottom: 15px; font-size: 24px; }
+  .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+  .btn {
+    padding: 14px 20px;
+    border-radius: 8px;
+    border: 1px solid #314a78;
+    background: #2d3d63;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.2s;
+    min-width: 180px;
+    text-align: center;
+  }
+  .btn:hover { background: #405080; transform: scale(1.02); }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Master Panel</h1>
+
+  <div class="section">
+    <h2>Calculators</h2>
+    <div class="buttons">
+      <a href="force.html" class="btn">Force Calculator</a>
+      <a href="normal.html" class="btn">Normal Calculator</a>
+      <a href="length.html" class="btn">Length Calculator</a>
+      <a href="bmi.html" class="btn">BMI Calculator</a>
+      <a href="energy.html" class="btn">Energy Conventor</a>
+      <a href="speed.html" class="btn">Speed Conventor</a>
+      <a href="time.html" class="btn">Time Conventor</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Special Projects</h2>
+    <div class="buttons">
+      <a href="ultimate.html" class="btn">Ultimate Energy</a>
+      <a href="automation.html" class="btn">Automation</a>
+      <a href="timetravel.html" class="btn">Time Travel</a>
+      <a href="bman.html" class="btn">B Man Project</a>
+      <a href="gravityboom.html" class="btn">Gravity Boom</a>
+    </div>
+  </div>
+<a href="index.html"
+class="btn">back to main page</a>
+</div>
+
+</body>
+</html>
