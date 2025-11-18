@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Force Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Force Calculator</h1>
+
+    <div class="calculator">
+      <input type="number" id="mass" placeholder="Mass (kg)">
+      <input type="number" id="acceleration" placeholder="Acceleration (m/s²)">
+      <button onclick="calculateForce()" class="btn">Calculate Force</button>
+      <h2 id="result"></h2>
+    </div>
+
+    <a href="master.html" class="btn">Back to Master Panel</a>
+  </div>
+
+  <script>
+    function calculateForce() {
+      let m = parseFloat(document.getElementById("mass").value);
+      let a = parseFloat(document.getElementById("acceleration").value);
+
+      if(isNaN(m) || isNaN(a)){
+        alert("Please enter valid numbers");
+        return;
+      }
+
+      let force = m * a;
+      document.getElementById("result").innerText = "Force: " + force + " N";
+    }
+  </script>
+</body>
+</html>

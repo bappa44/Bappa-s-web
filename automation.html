@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automation</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #0d1425; color: white; font-family: Arial, sans-serif; }
+  .container { width: 500px; background: #1e2a47; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+  h1 { margin-bottom: 20px; font-size: 32px; }
+  input { width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 8px; border: none; background: #314a78; color: white; font-size: 18px; text-align: center; }
+  button { padding: 15px 30px; font-size: 20px; border: none; border-radius: 8px; background: #2d3d63; color: white; cursor: pointer; transition: 0.2s; }
+  button:hover { background: #405080; transform: scale(1.02); }
+  .message { margin-top: 20px; font-size: 20px; background: #2d3d63; padding: 15px; border-radius: 10px; }
+  a.back { display: block; margin-top: 25px; text-decoration: none; color: white; font-size: 18px; background: #314a78; padding: 12px; border-radius: 8px; transition: 0.2s; }
+  a.back:hover { background: #405080; }
+</style>
+</head>
+<body>
+
+<div class="container" id="passwordContainer">
+  <h1>Enter Password</h1>
+  <input type="password" id="passwordInput" placeholder="Enter password">
+  <button onclick="checkPassword()">Submit</button>
+  <a href="master.html" class="back">Back to Master Panel</a>
+</div>
+
+<div class="container" id="automationContainer" style="display:none;">
+  <h1>Automation</h1>
+  <div class="message">Pending...</div>
+  <a href="master.html" class="back">Back to Master Panel</a>
+</div>
+
+<script>
+function checkPassword(){
+  const password = document.getElementById('passwordInput').value.trim();
+  if(password === "4444"){
+    document.getElementById('passwordContainer').style.display = 'none';
+    document.getElementById('automationContainer').style.display = 'block';
+  } else {
+    alert("Incorrect password!");
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Person Info</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 50px; background: #0d1425; color: white; font-family: Arial, sans-serif; }
+  .container { width: 500px; background: #1e2a47; padding: 30px; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+  h1 { text-align: center; margin-bottom: 20px; font-size: 32px; }
+  input, select { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 8px; border: none; background: #314a78; color: white; font-size: 18px; text-align: center; }
+  button { width: 100%; padding: 15px; font-size: 20px; border: none; border-radius: 8px; background: #2d3d63; color: white; cursor: pointer; transition: 0.2s; }
+  button:hover { background: #405080; transform: scale(1.02); }
+  .output { margin-top: 20px; padding: 15px; background: #2d3d63; border-radius: 10px; font-size: 18px; max-height: 300px; overflow-y: auto; }
+  a.back { display: block; margin-top: 25px; text-align: center; text-decoration: none; color: white; font-size: 18px; background: #314a78; padding: 12px; border-radius: 8px; transition: 0.2s; }
+  a.back:hover { background: #405080; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Person Info</h1>
+
+  <input type="text" id="name" placeholder="Enter Name">
+  <select id="gender">
+    <option value="">Select Gender</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Other">Other</option>
+  </select>
+  <input type="number" id="age" placeholder="Enter Age">
+  <input type="text" id="city" placeholder="Enter City">
+  <input type="text" id="contact" placeholder="Enter Contact">
+
+  <button onclick="addPerson()">Submit</button>
+
+  <div class="output" id="output"></div>
+
+  <a href="master.html" class="back">Back to Master Panel</a>
+</div>
+
+<script>
+// Load data from localStorage on page load
+let persons = JSON.parse(localStorage.getItem('persons')) || [];
+
+function displayPersons(){
+  let outputDiv = document.getElementById('output');
+  if(persons.length === 0){
+    outputDiv.innerHTML = "<p>No person info yet.</p>";
+    return;
+  }
+  let html = "<h2>All Persons</h2>";
+  persons.forEach((p, index)=>{
+    html += `<p><strong>${index+1}.</strong> Name: ${p.name}, Gender: ${p.gender}, Age: ${p.age}, City: ${p.city}, Contact: ${p.contact}</p>`;
+  });
+  outputDiv.innerHTML = html;
+}
+
+function addPerson(){
+  let name = document.getElementById('name').value.trim();
+  let gender = document.getElementById('gender').value;
+  let age = document.getElementById('age').value.trim();
+  let city = document.getElementById('city').value.trim();
+  let contact = document.getElementById('contact').value.trim();
+
+  if(!name || !gender || !age || !city || !contact){
+    alert("Please fill all fields");
+    return;
+  }
+
+  // Add person to array
+  persons.push({name, gender, age, city, contact});
+
+  // Save to localStorage
+  localStorage.setItem('persons', JSON.stringify(persons));
+
+  // Clear input
+  document.getElementById('name').value = "";
+  document.getElementById('gender').value = "";
+  document.getElementById('age').value = "";
+  document.getElementById('city').value = "";
+  document.getElementById('contact').value = "";
+
+  displayPersons();
+}
+
+// Display on page load
+displayPersons();
+</script>
+
+</body>
+</html>

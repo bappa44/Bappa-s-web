@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Converter</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 50px; background: #0d1425; color: white; font-family: Arial, sans-serif; }
+  .converter-container { width: 450px; background: #1e2a47; padding: 30px; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+  h1 { text-align: center; margin-bottom: 20px; font-size: 32px; }
+  input, select { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 8px; border: none; background: #314a78; color: white; font-size: 18px; text-align: center; }
+  button { width: 100%; padding: 15px; font-size: 20px; border: none; border-radius: 8px; background: #2d3d63; color: white; cursor: pointer; transition: 0.2s; }
+  button:hover { background: #405080; transform: scale(1.02); }
+  h2 { text-align: center; margin-top: 15px; }
+  a.back { display: block; margin-top: 25px; text-align: center; text-decoration: none; color: white; font-size: 18px; background: #314a78; padding: 12px; border-radius: 8px; transition: 0.2s; }
+  a.back:hover { background: #405080; }
+</style>
+</head>
+<body>
+
+<div class="converter-container">
+  <h1>Energy Converter</h1>
+
+  <input type="number" id="energyValue" placeholder="Enter energy value">
+  <select id="fromUnit">
+    <option value="J">Joule (J)</option>
+    <option value="kJ">Kilojoule (kJ)</option>
+    <option value="cal">Calorie (cal)</option>
+    <option value="kcal">Kilocalorie (kcal)</option>
+    <option value="Wh">Watt-hour (Wh)</option>
+  </select>
+
+  <select id="toUnit">
+    <option value="J">Joule (J)</option>
+    <option value="kJ">Kilojoule (kJ)</option>
+    <option value="cal">Calorie (cal)</option>
+    <option value="kcal">Kilocalorie (kcal)</option>
+    <option value="Wh">Watt-hour (Wh)</option>
+  </select>
+
+  <button onclick="convertEnergy()">Convert</button>
+  <h2 id="result"></h2>
+
+  <a href="master.html" class="back">Back to Master Panel</a>
+</div>
+
+<script>
+const energyUnits = {
+  J: 1,
+  kJ: 1000,
+  cal: 4.184,
+  kcal: 4184,
+  Wh: 3600
+};
+
+function convertEnergy(){
+  let value = parseFloat(document.getElementById('energyValue').value);
+  let from = document.getElementById('fromUnit').value;
+  let to = document.getElementById('toUnit').value;
+
+  if(isNaN(value)){
+    alert("Enter a valid number");
+    return;
+  }
+
+  let inJoules = value * energyUnits<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 50px; background: #0d1425; color: white; font-family: Arial, sans-serif; }
+  .calculator-container { width: 450px; background: #1e2a47; padding: 30px; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+  h1 { text-align: center; margin-bottom: 20px; font-size: 32px; }
+  input { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 8px; border: none; background: #314a78; color: white; font-size: 18px; text-align: center; }
+  button { width: 100%; padding: 15px; font-size: 20px; border: none; border-radius: 8px; background: #2d3d63; color: white; cursor: pointer; transition: 0.2s; }
+  button:hover { background: #405080; transform: scale(1.02); }
+  h2 { text-align: center; margin-top: 15px; }
+  a.back { display: block; margin-top: 25px; text-align: center; text-decoration: none; color: white; font-size: 18px; background: #314a78; padding: 12px; border-radius: 8px; transition: 0.2s; }
+  a.back:hover { background: #405080; }
+</style>
+</head>
+<body>
+
+<div class="calculator-container">
+  <h1>BMI Calculator</h1>
+
+  <input type="number" id="weight" placeholder="Weight (kg)">
+  <input type="number" id="height" placeholder="Height (cm)">
+  <button onclick="calculateBMI()">Calculate BMI</button>
+
+  <h2 id="result"></h2>
+
+  <a href="master.html" class="back">Back to Master Panel</a>
+</div>
+
+<script>
+function calculateBMI(){
+  let weight = parseFloat(document.getElementById('weight').value);
+  let height = parseFloat(document.getElementById('height').value);
+
+  if(isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0){
+    alert("Enter valid weight and height");
+    return;
+  }
+
+  // Convert height from cm to meters
+  height = height / 100;
+
+  let bmi = weight / (height * height);
+  let category = '';
+
+  if(bmi < 18.5) category = 'Underweight';
+  else if(bmi < 24.9) category = 'Normal weight';
+  else if(bmi < 29.9) category = 'Overweight';
+  else category = 'Obese';
+
+  document.getElementById('result').innerText = `BMI: ${bmi.toFixed(2)} (${category})`;
+}
+</script>
+
+</body>
+</html>
